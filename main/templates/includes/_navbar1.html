@@ -1,7 +1,7 @@
 {% load static %}
 
-    <header class="header-area">
-        <nav class="navbar navbar-expand-lg main-menu">
+ <section class="header-area-2">
+        <nav class="navbar navbar-expand-lg dashboard-menu">
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="/"><img src="{% static 'assets/images/logo.png' %}" class="d-inline-block align-top" alt=""></a>
@@ -11,7 +11,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto">
+                     <ul class="navbar-nav m-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/" role="button" >Home</a>
                             
@@ -53,16 +53,10 @@
                         </li> {% endcomment %}
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
-                    <select name="lang-select" class="lang-select select-bar">
-                        <option value="">En</option>
-                        <option value="">Fr</option>
-                        <option value="">Bn</option>
-                    </select>
                     <div class="header-btn justify-content-end">
-                        <a href="{% url 'main:dashboard' %}" class="bttn-small btn-emt"><i class="ti-user"></i>Dashboard</a>
+                        <a href="{% url 'main:logout' %}" class="bttn-small btn-emt">Logout</a>
                     </div>
                 </div>
             </div>
         </nav>
-    </header><!--/Header Area-->
-    
+    </section>

@@ -1,0 +1,207 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+        {% include 'includes/_navbar1.html' %}
+         {% if messages %}
+
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show"{% endif %} role="alert">
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+    {% endif %}
+        <!--Hero Area-->
+
+            <!--nav-->
+    {% comment %} <section class="header-area-2">
+        <nav class="navbar navbar-expand-lg dashboard-menu">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="index-2.html"><img src="assets/images/logo.png" class="d-inline-block align-top" alt=""></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="index-2.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="index-3.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="dashboard.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="exchange-currency.html">Exchange Currency</a></li>
+                                <li><a class="dropdown-item" href="money-transfer.html">Money Transfer</a></li>
+                                <li><a class="dropdown-item" href="request-money.html">Request Money</a></li>
+                                <li><a class="dropdown-item" href="transection-log.html">Transection Log</a></li>
+                                <li><a class="dropdown-item" href="invoice.html">Invoice</a></li>
+                                <li><a class="dropdown-item" href="vouchers.html">Vouchers</a></li>
+                                <li><a class="dropdown-item" href="support-ticket.html">Support Ticket</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                                <li><a class="dropdown-item" href="faq.html">FAQ page</a></li>
+                                <li><a class="dropdown-item" href="404.html">Error</a></li>
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="register.html">Signup</a></li>
+                                <li><a class="dropdown-item" href="refund.html">Refund</a></li>
+                                <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+                                <li><a class="dropdown-item" href="tos.html">Terms and Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Announcements</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">Announcements</a></li>
+                                <li><a class="dropdown-item" href="blog-details.html">Announcement Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="header-btn justify-content-end">
+                        <a href="login.html" class="bttn-small btn-emt">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section> {% endcomment %}
+    <!--/nav-->
+
+
+    <!--breadcrumb area-->
+    <section class="breadcrumb-area gradient-overlay">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 centered">
+                    <div class="banner-title">
+                        <h2>Welcome back!</h2>
+                    </div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li>Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/breadcrumb area-->
+
+    <!--Dashboard area-->
+    <section class="section-padding-2 gradient-overlay poly-particle">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+                    <aside class="sidebar">
+                        <ul>
+                            <li class="active"><a href="dashboard.html"><i class="ti-direction"></i>Dashboard</a></li>
+                            <li><a href="exchange-currency.html"><i class="ti-exchange-vertical"></i>Currency Exchange</a></li>
+                            <li><a href="money-transfer.html"><i class="ti-direction"></i>Money Transfer</a></li>
+                            <li><a href="request-money.html"><i class="ti-wallet"></i>Request Money</a></li>
+                            <li><a href="transection-log.html"><i class="ti-check-box"></i>Transection Log</a></li>
+                            <li><a href="invoice.html"><i class="ti-check-box"></i>Invoice</a></li>
+                            <li><a href="vouchers.html"><i class="ti-clipboard"></i>Voucher</a></li>
+                            <li><a href="support-ticket.html"><i class="ti-help-alt"></i>Support</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                    <div class="dashboard-content">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>US Doller</h4>
+                                    <p>&#36; 20657.47 USD</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>Taka</h4>
+                                    <p>&#x09F3; 20657.47 BDT</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>Canadian Doller</h4>
+                                    <p>&#163; 20657.47 CAD</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>Pound</h4>
+                                    <p>&#163; 20657.47 GBP</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>Yen</h4>
+                                    <p>&#165; 20657.47 YEN</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>US Doller</h4>
+                                    <p>&#36; 20657.47 USD</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>Pound</h4>
+                                    <p>&#163; 20657.47 GBP</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>Yen</h4>
+                                    <p>&#165; 20657.47 YEN</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                <div class="single-currency-box">
+                                    <h4>US Doller</h4>
+                                    <p>&#36; 20657.47 USD</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/Dashboard area-->
+    
+    <!--Footer Area-->
+    <footer class="footer-area section-padding-2 blue-bg wave-animation">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="#"><img src="assets/images/logo.png" alt=""></a>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dicta dignissimos enim reprehenderit minima repudiandae animi inventore expedita fugit. Nam natus tempore incidunt, ipsum minus esse et excepturi iusto ipsam!</p>
+                        <div class="social">
+                            <a href="#" class="cl-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="cl-youtube"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#" class="cl-pinterest"><i class="fa fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!--/Footer Area-->
+
+
+  {% endblock %}

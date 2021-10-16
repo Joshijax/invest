@@ -1,0 +1,95 @@
+{% load static %}
+<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+<script>
+$('#regForm').submit(function(e) {
+  e.preventDefault();
+  // get all the inputs into an array.
+  var $inputs = $('#regForm :input');
+
+  // not sure if you wanted this, but I thought I'd add it.
+  // get an associative array of just the values.
+  var values = {};
+  $inputs.each(function() {
+      values[this.name] = $(this).val();
+      console.log(values[this.name])
+  });
+  console.log(values)
+  $('#regbtn').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+  $('#regbtn').prop('disabled', true);
+  
+  $.ajax({
+    type: "post",
+    url: "{% url 'main:register' %}",
+    data: values,
+    success: function (response) {
+        $('#regbtn').html('Create account');
+        $('#regbtn').prop('disabled', false);
+        $('#message').html(`<div class="alert alert-${response.message_type} alert-dismissible fade show" role="alert">${response.message}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>`);
+        
+        {% comment %} $.scrollTo($('#message'), 1000); {% endcomment %}
+        console.log(response)
+        if(response.redirect){
+            window.location = response.redirect
+        }
+        
+    },
+    error: function (data) {
+
+        $('#regbtn').html('Create account');
+        $('#regbtn').prop('disabled', false);
+        $('#message').html(`<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong try again...<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>`);
+    },
+  });
+
+});
+
+
+$('#logForm').submit(function(e) {
+  e.preventDefault();
+  // get all the inputs into an array.
+  var $inputs = $('#logForm :input');
+
+  // not sure if you wanted this, but I thought I'd add it.
+  // get an associative array of just the values.
+  var values = {};
+  $inputs.each(function() {
+      values[this.name] = $(this).val();
+      console.log(values[this.name])
+  });
+  console.log(values)
+  $('#subLogin').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+  $('#subLogin').prop('disabled', true);
+  
+
+  $.ajax({
+    type: "post",
+    url: "{% url 'main:login' %}",
+    data: values,
+    success: function (response) {
+        $('#subLogin').html('Login now');
+        $('#subLogin').prop('disabled', false);
+        $('#message').html(`<div class="alert alert-${response.message_type} alert-dismissible fade show" role="alert">${response.message}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>`);
+        
+        console.log(response)
+        if(response.redirect){
+            window.location = response.redirect
+        }
+    },
+    error: function (data) {
+
+        $('#regbtn').html('Create account');
+        $('#regbtn').prop('disabled', false);
+        $('#message').html(`<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong try again...<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>`);
+    },
+  });
+
+});
+</script>
