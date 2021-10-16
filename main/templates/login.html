@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+        {% include 'includes/_navbars.html' %}
+        <!--Hero Area-->
+    <section class="hero-section">
+        <div class="hero-area wave-animation">
+            <div class="single-hero gradient-overlay">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 centered">
+                            <div class="hero-sub">
+                                <div class="table-cell">
+                                    <div class="hero-left">
+                                        <h2>Login here</h2>
+                                        <p>Login To Start Earning</p>
+                                        <div class="account-form">
+                                            <form action="http://idealbrothers.thesoftking.com/html/walleto/dashboard.html" class="row">
+                                                <div class="col-xl-12">
+                                                    <input type="email" placeholder="User/Email" required>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="password" placeholder="Password" required>
+                                                </div>
+                                                
+                                                <div class="col-xl-12">
+                                                    <button type="submit" class="bttn-mid btn-fill w-100">Login now</button>
+                                                </div>
+                                            </form>
+                                            <div class="extra-links">
+                                                <a href="forgot-password.html">Forgot password</a>
+                                                <a href="register.html">Register now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/Hero Area-->
+
+    {% include 'includes/_footer.html' %}
+
+  {% endblock %}

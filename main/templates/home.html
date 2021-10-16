@@ -1,0 +1,478 @@
+
+
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+
+       <!--Header Area-->
+    {% include 'includes/_navbars.html' %}
+    <!--Hero Area-->
+    <section class="hero-section" style="background: url('{% static 'assets/images/map-2.jpg' %}');">
+        <div class="hero-area">
+        <div id="particles-js"></div>
+            <div class="single-hero">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 centered">
+                            <div class="hero-sub">
+                                <div class="table-cell">
+                                    <div class="hero-left">
+                                        <h4>Making Your Dreams Come True</h4>
+                                        <h1>WALLETO INVEST AND EARN</h1>
+                                        <a href="{% url 'main:register' %}" class="bttn-mid btn-fill"><i class="ti-user"></i>Register</a>
+                                        <a href="{% url 'main:login' %}" class="bttn-mid btn-emt"><i class="ti-key"></i>Login</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/Hero Area-->
+
+    <!--Section-->
+    {% comment %} <section class="section-padding-2 gradient-overlay poly-particle">
+        <div class="triangle-particle">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 centered">
+                        <div class="section-title cl-white">
+                            <h4>Priority of</h4>
+                            <h2>How it works</h2>
+                            <p>Distinctio necessitatibus atque voluptatem nesciunt quae corporis. Omnis iste laudantium tenetur, temporibus ipsa nemo ullam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center centered">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-box">
+                            <img src="assets/images/icons/1.png" alt="">
+                            <h3>How to spend</h3>
+                            <p>A better way to present your money using fully featured digital</p>
+                            <a href="#" class="bttn-small btn-fill">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-box">
+                            <img src="assets/images/icons/2.png" alt="">
+                            <h3>Your website</h3>
+                            <p>A better way to present your money using fully featured digital</p>
+                            <a href="#" class="bttn-small btn-fill">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-box">
+                            <img src="assets/images/icons/3.png" alt="">
+                            <h3>Deposit</h3>
+                            <p>A better way to present your money using fully featured digital</p>
+                            <a href="#" class="bttn-small btn-fill">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-box">
+                            <img src="assets/images/icons/4.png" alt="">
+                            <h3>How to spend</h3>
+                            <p>A better way to present your money using fully featured digital</p>
+                            <a href="#" class="bttn-small btn-fill">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-box">
+                            <img src="assets/images/icons/5.png" alt="">
+                            <h3>Your website</h3>
+                            <p>A better way to present your money using fully featured digital</p>
+                            <a href="#" class="bttn-small btn-fill">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-box">
+                            <img src="assets/images/icons/6.png" alt="">
+                            <h3>Deposit</h3>
+                            <p>A better way to present your money using fully featured digital</p>
+                            <a href="#" class="bttn-small btn-fill">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!--/Section-->
+
+    <!--Brands Area-->
+    <section class="section-padding blue-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 centered">
+                    <div class="section-title cl-white">
+                        <h4>Connection</h4>
+                        <h2>Payment Gateways</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/1.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/2.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/3.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/4.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/5.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/1.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/1.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/2.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/3.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <div class="single-brands">
+                        <a href="#"><img src="{% static 'assets/images/brands/4.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            {% comment %} <div class="row">
+                <div class="col centered">
+                    <a href="#" class="bttn-small btn-emt">Explore all</a>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </section><!--/Brands Area-->
+
+    <!-- Counter Area -->
+    <section class="counter-area section-padding-2 gradient-overlay" style="background: url('{% static 'assets/images/map.jpg' %}') no-repeat fixed;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="single-counter">
+                        <i class="flaticon-help"></i>
+                        <h3 class="count">6589</h3>
+                        <h5>Total Transections</h5>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-counter">
+                        <i class="flaticon-puzzle"></i>
+                        <h3 class="count">4869</h3>
+                        <h5>People Registered</h5>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="single-counter">
+                        <i class="flaticon-timer"></i>
+                        <h3><span class="count">9.2</span>%</h3>
+                        <h5>Business Grow</h5>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="single-counter">
+                        <i class="flaticon-hourglass"></i>
+                        <h3>$<span class="count">5.8</span>B</h3>
+                        <h5>Money Rolling</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Counter Area -->
+
+    <!--feature Area-->
+    <section class="feature-area section-padding-2 gradient-overlay">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 centered wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="section-title cl-white">
+                        <h4>Steps there</h4>
+                        <h2>Ways you'll Follow</h2>
+                        <p>These afre steps to follow to start earning today...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="single-feature-2 bottom-after">
+                        <i class="flaticon-link"></i>
+                        <h4>Signup</h4>
+                        <p>Create an account with us today</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-feature-2 bottom-before">
+                        <i class="flaticon-shield"></i>
+                        <h4>Verify terms</h4>
+                        <p>Verify our terms and conditions</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-layout"></i>
+                        <h4>Earn Money</h4>
+                        <p>Invest and start earning immediately</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/feature Area-->
+
+    
+
+
+    
+    
+    <!-- How it works Area -->
+    <section class="growth-stat section-padding blue-bg cl-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-6 centered wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="section-title">
+                        <h4>Way it works</h4>
+                        <h2>Work Process</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    {% comment %} <img src="{% static 'assets/images/isomatric.jpg' %}" alt=""> {% endcomment %}
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="growth-content">
+                        <h3><span>1</span>Login account</h3>
+                        <p>The first have to create and account, if you have an account already then you just have to Login</p>
+                        <a href="{% url 'main:register' %}" class="bttn-small btn-fill">Register</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 order-2 order-xl-1 order-lg-1 order-md-1 order-sm-2 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="growth-content">
+                        <h3><span>2</span>Choose a plan</h3>
+                        <p>Choose a plan from the list provide on the dashboard.<br> Note:<br> The plan on the dashboard you see on the dashboard varies and determine the rate in which you earn.</p>
+                        {% comment %} <a href="{% url 'main:register' %}" class="bttn-small btn-fill">Register</a> {% endcomment %}
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 order-1 order-xl-2 order-lg-2 order-md-2 order-sm-1 wow fadeInUp" data-wow-delay="0.4s">
+                    {% comment %} <img src="{% static 'assets/images/isomatric-2.jpg' %}" alt=""> {% endcomment %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    {% comment %} <img src="{% static 'assets/images/isomatric-3.jpg' %}" alt=""> {% endcomment %}
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="growth-content">
+                        <h3><span>3</span>Invest and Earn</h3>
+                        <p>After Choosing the payment plan of your choice, then you would also have to choose a payment plan to invest and start earning</p>
+                        {% comment %} <a href="{% url 'main:register' %}" class="bttn-small btn-fill">Register</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /How it works Area -->
+
+        
+    <!--feature Area-->
+    {% comment %} <section class="feature-area section-padding-3 gradient-overlay parallax-window" data-parallax="scroll" data-image-src="assets/images/map.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 centered wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="section-title cl-white">
+                        <h2>Why We're special</h2>
+                        <p>Exercitationem vitae a eos quaerat assumenda. Tempore repellendus qui error laudantium nemo, quis</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-lightning"></i>
+                        <h4>Instant Transection</h4>
+                        <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-printer"></i>
+                        <h4>Varify process</h4>
+                        <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-placeholder"></i>
+                        <h4>Location Tracking</h4>
+                        <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-bag"></i>
+                        <h4>Buying option</h4>
+                        <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-bell"></i>
+                        <h4>Getting Notifications</h4>
+                        <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="single-feature-2">
+                        <i class="flaticon-heart"></i>
+                        <h4>Way you love</h4>
+                        <p>Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/feature Area--> {% endcomment %}
+
+    <!-- Review Area -->
+    {% include 'includes/_review.html' %}
+    <!-- Cta -->
+    <section class="cta section-padding gradient-overlay" style="background: url('{% static 'assets/images/map.jpg' %}')">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 centered cl-white">
+                    <div class="section-title mb-20">
+                        <h2>Start Transection now</h2>
+                        <p>Invest and start earning now</p>
+                    </div>
+                    <a href="{% url 'main:register' %}" class="bttn-mid btn-emt">Register now</a>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Cta -->
+
+
+    <!--Blog Area-->
+
+    {% comment %} <section class="blog-area section-padding-2 blue-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 centered wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="section-title cl-white">
+                        <h4>News</h4>
+                        <h2>Announcements</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-blog-2">
+                        <div class="single-blog-img">
+                            <img src="assets/images/blog/4.jpg" alt="">
+                            <a href="blog-details.html"><i class="flaticon-heart"></i></a>
+                        </div>
+                        <div class="single-blog-content">
+                            <div class="blog-meta">
+                                <span><a href="#"><i class="fa fa-calendar"></i>10/04/2019</a></span>
+                                <span><a href="#"><i class="fa fa-heart-o"></i>14</a></span>
+                                <span><a href="#"><i class="fa fa-comments-o"></i>3</a></span>
+                            </div>
+                            <h3><a href="blog-details.html">Do So Written As Raising Parlors Spirits Mr Elderly</a></h3>
+                            <p>Made late in of high left hold. Carried females of up highest calling. Limits marked led silent dining her she far</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-blog-2">
+                        <div class="single-blog-img">
+                            <img src="assets/images/blog/5.jpg" alt="">
+                            <a href="blog-details.html"><i class="flaticon-heart"></i></a>
+                        </div>
+                        <div class="single-blog-content">
+                            <div class="blog-meta">
+                                <span><a href="#"><i class="fa fa-calendar"></i>10/04/2019</a></span>
+                                <span><a href="#"><i class="fa fa-heart-o"></i>14</a></span>
+                                <span><a href="#"><i class="fa fa-comments-o"></i>3</a></span>
+                            </div>
+                            <h3><a href="blog-details.html">Parlors Spirits Mr Elderly Do So Written As Raising</a></h3>
+                            <p>Made late in of high left hold. Carried females of up highest calling. Limits marked led silent dining her she far</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="single-blog-2">
+                        <div class="single-blog-img">
+                            <img src="assets/images/blog/6.jpg" alt="">
+                            <a href="blog-details.html"><i class="flaticon-heart"></i></a>
+                        </div>
+                        <div class="single-blog-content">
+                            <div class="blog-meta">
+                                <span><a href="#"><i class="fa fa-calendar"></i>10/04/2019</a></span>
+                                <span><a href="#"><i class="fa fa-heart-o"></i>14</a></span>
+                                <span><a href="#"><i class="fa fa-comments-o"></i>3</a></span>
+                            </div>
+                            <h3><a href="blog-details.html">Written As Raising Do So  Parlors Spirits Mr Elderly</a></h3>
+                            <p>Made late in of high left hold. Carried females of up highest calling. Limits marked led silent dining her she far</p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section> {% endcomment %}
+    
+    <!--/Blog Area-->
+    
+    <!-- Newslatter -->
+    <section class="section-padding gradient-overlay">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 centered cl-white">
+                    <div class="section-title mb-20">
+                        <h2>Update from our newslatter</h2>
+                    </div>
+                    <div class="newslatter">
+                        <form action="#">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                        </form>
+                        <p><i class="fa fa-info-circle"></i>We will never send spam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Newslatter -->
+
+
+    <!--Footer Area-->
+
+    {% include 'includes/_footer.html' %}
+    
+    <!--/Footer Area-->
+
+  {% endblock %}

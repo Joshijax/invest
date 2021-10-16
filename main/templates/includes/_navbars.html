@@ -1,0 +1,68 @@
+{% load static %}
+
+    <header class="header-area">
+        <nav class="navbar navbar-expand-lg main-menu">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="/"><img src="{% static 'assets/images/logo.png' %}" class="d-inline-block align-top" alt=""></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" >Home</a>
+                            
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                        {% comment %} <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li> {% endcomment %}
+                        {% comment %} <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="dashboard.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="exchange-currency.html">Exchange Currency</a></li>
+                                <li><a class="dropdown-item" href="money-transfer.html">Money Transfer</a></li>
+                                <li><a class="dropdown-item" href="request-money.html">Request Money</a></li>
+                                <li><a class="dropdown-item" href="transection-log.html">Transection Log</a></li>
+                                <li><a class="dropdown-item" href="invoice.html">Invoice</a></li>
+                                <li><a class="dropdown-item" href="vouchers.html">Vouchers</a></li>
+                                <li><a class="dropdown-item" href="support-ticket.html">Support Ticket</a></li>
+                            </ul>
+                        </li> {% endcomment %}
+                        {% comment %} <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                                <li><a class="dropdown-item" href="faq.html">FAQ page</a></li>
+                                <li><a class="dropdown-item" href="404.html">Error</a></li>
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="register.html">Signup</a></li>
+                                <li><a class="dropdown-item" href="refund.html">Refund</a></li>
+                                <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+                                <li><a class="dropdown-item" href="tos.html">Terms and Services</a></li>
+                            </ul>
+                        </li> {% endcomment %}
+                        {% comment %} <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Announcements</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">Announcements</a></li>
+                                <li><a class="dropdown-item" href="blog-details.html">Announcement Details</a></li>
+                            </ul>
+                        </li> {% endcomment %}
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <select name="lang-select" class="lang-select select-bar">
+                        <option value="">En</option>
+                        <option value="">Fr</option>
+                        <option value="">Bn</option>
+                    </select>
+                    <div class="header-btn justify-content-end">
+                        <a href="dashboard.html" class="bttn-small btn-emt"><i class="ti-user"></i>Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header><!--/Header Area-->
+    
