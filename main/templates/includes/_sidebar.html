@@ -3,7 +3,7 @@
                     <aside class="sidebar">
                         <ul>
                             <li {% if  request.path == '/dashboard/'  %}class="active"{% endif %} ><a href="{% url 'main:dashboard' %}"><i class="ti-direction"></i>Dashboard</a></li>
-                            <li {% if  request.path == '/dashboard/#balance'  %}class="active"{% endif %}><a href="#balance"><i class="ti-exchange-vertical"></i>Current Balance</a></li>
+                            <li {% if  request.path == '/dashboard/#balance'  %}class="active"{% endif %}><a href="/dashboard/#balance"><i class="ti-exchange-vertical"></i>Current Balance</a></li>
                             <li {% if  request.path == '/invest/'  %}class="active"{% endif %}><a href="{% url 'main:invest' %}"><i class="ti-direction"></i>Invest</a></li>
                             <li><a href="#"><i class="ti-wallet"></i>Confirm payments</a></li>
                             <li><a href="#"><i class="ti-check-box"></i>Transection Log</a></li>
