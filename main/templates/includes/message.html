@@ -1,0 +1,7 @@
+<div class="single-currency-box">
+    <h4>Investment Taken</h4>
+    {% if request.user.profile.message %}
+        <p>{{request.user.profile.message}}</p>
+    {% endif %}
+   <p>{% with message|first as first_doc %}{{ first_doc.message }}{% endwith %}</p>
+</div>

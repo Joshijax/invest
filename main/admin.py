@@ -1,12 +1,13 @@
 from django.contrib import admin
 
-from main.models import Invest, UserType
+from main.models import Invest, Message, UserType
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
 # Register your models here.
 admin.site.register(Invest)
 admin.site.register(UserType)
+admin.site.register(Message)
 
 class ProfileInline(admin.StackedInline):
     model = UserType

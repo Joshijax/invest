@@ -6,6 +6,7 @@
 
        <!--Header Area-->
     {% include 'includes/_navbars.html' %}
+    
     <!--Hero Area-->
     <section class="hero-section" style="background: url('{% static 'assets/images/map-2.jpg' %}');">
         <div class="hero-area">
@@ -13,10 +14,24 @@
             <div class="single-hero">
                 <div class="container">
                     <div class="row justify-content-center">
+                     
                         <div class="col-xl-8 centered">
                             <div class="hero-sub">
                                 <div class="table-cell">
                                     <div class="hero-left">
+                                        {% if messages %}
+
+                                            {% for message in messages %}
+                                            <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show"{% endif %} role="alert">
+                                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                                {{ message }}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            {% endfor %}
+
+                                        {% endif %}
                                         <h4>Making Your Dreams Come True</h4>
                                         <h1>WALLETO INVEST AND EARN</h1>
                                         <a href="{% url 'main:register' %}" class="bttn-mid btn-fill"><i class="ti-user"></i>Register</a>
@@ -100,7 +115,8 @@
     <!--/Section-->
 
     <!--Brands Area-->
-    {% include 'includes/_payments.html' %}
+    
+    {% include 'includes/_partners.html' %}
 
     <!-- Counter Area -->
     <section class="counter-area section-padding-2 gradient-overlay" style="background: url('{% static 'assets/images/map.jpg' %}') no-repeat fixed;">

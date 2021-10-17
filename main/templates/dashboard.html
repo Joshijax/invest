@@ -109,11 +109,44 @@
                 {% include 'includes/_sidebar.html' %}
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
                     <div class="dashboard-content">
+                     <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <!-- interactive chart -->
+          <div class="box">
+            <div class="box-header with-border">
+              <i class="fa fa-line-chart"></i>
+
+              <h3 class="box-title">Investment Chart</h3>
+
+              <div class="box-tools pull-right">
+                Real time
+                <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                  <button type="button" class="btn btn-default bg-green btn-sm active" data-toggle="on">On</button>
+                  <button type="button" class="btn btn-default bg-red btn-sm" data-toggle="off">Off</button>
+                </div>
+              </div>
+            </div>
+            <div class="box-body">
+              <div id="interactive" style="height: 300px;"></div>
+            </div>
+            <!-- /.box-body-->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      
+      <!-- /.row -->
+    </section>
                         <div class="row">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div id="balance" class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                 <div class="single-currency-box">
                                     <h4>Balance</h4>
-                                    <p>{{request.user.profile.balance}} USD</p>
+                                    <p>{{request.user.profile.balance}} USD{{request.path}} </p>
                                 </div>
                             </div>
                             {% for investment in invest %}
@@ -141,25 +174,7 @@
         </div>
     </section><!--/Dashboard area-->
     
-    <!--Footer Area-->
-    <footer class="footer-area section-padding-2 blue-bg wave-animation">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
-                    <div class="footer-widget">
-                        <a href="#"><img src="assets/images/logo.png" alt=""></a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dicta dignissimos enim reprehenderit minima repudiandae animi inventore expedita fugit. Nam natus tempore incidunt, ipsum minus esse et excepturi iusto ipsam!</p>
-                        <div class="social">
-                            <a href="#" class="cl-facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="cl-twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="cl-youtube"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#" class="cl-pinterest"><i class="fa fa-pinterest-p"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer><!--/Footer Area-->
 
+    {% include 'includes/_footer2.html' %}
 
   {% endblock %}

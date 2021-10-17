@@ -1,0 +1,199 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+  {% load djmoney %}
+  <style>
+ label {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+label:hover {
+  filter: grayscale(0);
+}
+{% comment %} input[type="radio"]:checked + label {
+  filter: grayscale(0);
+} {% endcomment %}
+.checker:checked + label {
+  filter: grayscale(0);
+}
+  </style>
+  <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+        {% include 'includes/_navbar1.html' %}
+         {% if messages %}
+
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show"{% endif %} role="alert">
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+    {% endif %}
+
+    <!--breadcrumb area-->
+    <section class="breadcrumb-area blue-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 centered">
+                    <div class="banner-title">
+                        <h2>INVEST</h2>
+                    </div>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li>Invest</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/breadcrumb area-->
+
+    <!--Dashboard area-->
+    <section class="section-padding gradient-overlay poly-particle">
+        <div class="container">
+            <div class="row">
+               {% include 'includes/_sidebar.html' %}
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                    <div class="dashboard-content">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="dashboard-inner-content">
+                                    <div class="card">
+                                        <h5 class="card-header">Invest Form</h5>
+                                        <div class="card-body">
+                                            <form action="#" id="investForm">
+                                                <div class="row">
+                                                    
+                                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <label for="currencygsd">Curreny</label>
+                                                        <select name="currency-select" class="select-bar" id="currencygsd">
+                                                            <option value="">USD</option>
+                                                        </select>    
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                        <div class="form-group">
+                                                        <label for="sel1">Select investment plan:</label>
+                                                        <select class="form-control" id="currencygs">
+                                                            {% for invests in invest %}
+                                                            <option id="invest{{invests.id}}" value="{{invests.amount.amount}}">{{invests.name}}</option>
+                                                            {% endfor %}
+                                                        </select> 
+                                                        
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                        <label for="a-trans">Amount Transfer </label>
+                                                        <input  type="text" name="amount" value="{% with invest|first as first_doc %}{{ first_doc.amount.amount }}{% endwith %}" id="a-trans" readonly>
+                                                    </div>
+                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                       <p><i class="fa fa-info-circle"></i> Select Payement Method <span class="text-info">For now only Bitcoin is available</span></p>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-12 col-md-4 col-sm-6">
+                                                        <input type="radio" name="paymethod" class="sr-only checker" id="male">
+                                                        <label for="male">
+                                                            <img width='100%' height="100" src="{% static 'assets/images/brands/btc.jpg' %}" alt="male">
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-12 col-md-4 col-sm-6">
+                                                        <input type="radio" name="paymethod" class="sr-only" id="eth">
+                                                        <label for="eth">
+                                                            <img width='100%' height="100" src="{% static 'assets/images/brands/eth.jpg' %}" alt="female">
+                                                        </label>
+                                                    </div>
+                                                     <div class="col-xl-4 col-lg-12 col-md-4 col-sm-6">
+                                                        <input type="radio" name="paymethod" class="sr-only" id="eth">
+                                                        <label for="eth">
+                                                            <img width='100%' height="100" src="{% static 'assets/images/brands/usd.jpg' %}" alt="female">
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6">
+                                                        <input type="email" name="email" placeholder="Email" value={{request.user.email}} readonly>
+                                                    </div>
+
+                                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                       <button id="investBtn" type="submit">Invest</button>
+                                                    </div>
+                                                    
+
+                                                    <div id="messageplace" class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/Dashboard area-->
+
+    <script>
+
+        $('#currencygs').on('change', function (e) {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+            $("#a-trans").val(valueSelected);
+        });
+
+    $('#investForm').submit(function(e) {
+        e.preventDefault();
+        // get all the inputs into an array.
+        var $inputs = $('#investForm :input');
+
+        // not sure if you wanted this, but I thought I'd add it.
+        // get an associative array of just the values.
+        var values = {};
+        $inputs.each(function() {
+            values[this.name] = $(this).val();
+            console.log(values[this.name])
+        });
+        console.log(values)
+        $('#investBtn').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+        $('#investBtn').prop('disabled', true);
+        
+        $.ajax({
+            type: "post",
+            url: "{% url 'main:loadmsg' %}",
+            data: values,
+            success: function (response) {
+                $('#investBtn').html('Investment Taken');
+                $('#investBtn').prop('disabled', true);
+                $('#message').html(`<div class="alert alert-${response.message_type} alert-dismissible fade show" role="alert">${response.message}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>`);
+                $('#messageplace').html(response);
+                
+                {% comment %} $.scrollTo($('#message'), 1000); {% endcomment %}
+                console.log(response)
+                if(response.redirect){
+                    window.location = response.redirect
+                }
+                
+            },
+            error: function (data) {
+
+                $('#investBtn').html('Create account');
+                $('#investBtn').prop('disabled', false);
+                $('#message').html(`<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong try again...<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>`);
+            },
+        });
+
+        });
+
+    
+    </script>
+    
+    {% include 'includes/_footer2.html' %}
+
+
+  {% endblock %}

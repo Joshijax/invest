@@ -1,0 +1,9 @@
+
+{% autoescape off %}
+
+Hi {{user.username}},
+
+{{user.username}} your investment has been accepted. <br> {% with msg|first as first_doc %}{{ first_doc.message }}{% endwith %}.
+
+{% endautoescape %}
+

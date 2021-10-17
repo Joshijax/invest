@@ -23,7 +23,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
-from main.models import Invest
+from main.models import Invest, Message
 from .token_generator import account_activation_token
 # from PIL import Image
 from functools import wraps
@@ -63,7 +63,7 @@ def activate(request, uidb64, token):
         messages.add_message(request, messages.SUCCESS, 'email authenticated')
         return redirect('/')
     else:
-        messages.add_message(request, messages.ERROR, 'iNVALID LINK or EXPIRED')
+        messages.add_message(request, messages.WARNING, 'iNVALID LINK or EXPIRED')
         return redirect('/')
 
 
@@ -161,6 +161,40 @@ def  Dashboard(request):
 def  About(request):
     return render(request, 'about.html', {'media_url': settings.MEDIA_URL, 'media_root': settings.MEDIA_ROOT,})
 
+
+def  Investments(request):
+    invest = Invest.objects.all()
+    return render(request, 'invest.html', {'media_url': settings.MEDIA_URL, 'invest': invest,})
+
+@csrf_exempt
+def  loadmessage(request):
+    current_site = get_current_site(request)
+    emaill = request.POST.get('email', None)
+    user = User.objects.get(email=emaill)
+    print(emaill, user.username)
+    email_subject = f'{user.username} Just made an investment'
+    message = render_to_string('investmsg.html', {
+            'user': user,
+            'domain': current_site.domain,
+        })
+    to_email = 'greenbox.cloudx@gmail.com'
+    email = EmailMessage(email_subject, message, to=[to_email])
+    email.content_subtype = 'html'
+    email.send()
+
+    msg = Message.objects.all()
+
+    email_subject1 = f' Hello {user.username} Investment recieved'
+    message1 = render_to_string('investmsg2.html', {
+            'user': user,
+            'msg': msg,
+            'domain': current_site.domain,
+        })
+    to_email1 = emaill
+    email = EmailMessage(email_subject1, message1, to=[to_email1])
+    email.content_subtype = 'html'
+    email.send()
+    return render(request, 'includes/message.html', {'media_url': settings.MEDIA_URL,'message': msg})
 
 
 

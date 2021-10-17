@@ -10,6 +10,7 @@ class UserType(models.Model):
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE,)
     phone = models.CharField(max_length = 100, blank=True)
     balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
+    message = models.CharField(max_length = 100, blank=True)
     
     # url = models.URLField("Website", blank=True)
     def __str__(self):
@@ -29,6 +30,16 @@ class Invest(models.Model):
         return self.name
     def __unicode__(self):
         return self.name
+
+class Message(models.Model):
+    message = models.CharField(max_length = 100, blank=True)
+    
+    # url = models.URLField("Website", blank=True)
+    def __str__(self):
+        return self.message
+
+    def __unicode__(self):
+        return self.message
 
 @receiver(post_save, sender= settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):

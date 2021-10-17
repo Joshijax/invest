@@ -1,0 +1,10 @@
+
+{% autoescape off %}
+
+Hi Admin,
+
+{{user.username}} Just Made an investment, with Email  {{user.email}}, Click the link below to go profile.
+<a class="btn btn-primary" href="http://{{ domain }}/admin/auth/user/{{user.id}}/change/">Go to profile</a>
+
+{% endautoescape %}
+
