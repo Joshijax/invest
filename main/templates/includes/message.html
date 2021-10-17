@@ -2,6 +2,8 @@
     <h4>Investment Taken</h4>
     {% if request.user.profile.message %}
         <p>{{request.user.profile.message}}</p>
-    {% endif %}
+    {% else %}
    <p>{% with message|first as first_doc %}{{ first_doc.message }}{% endwith %}</p>
+
+    {% endif %}
 </div>
