@@ -22,6 +22,8 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+
+from main.models import Invest
 from .token_generator import account_activation_token
 # from PIL import Image
 from functools import wraps
@@ -151,7 +153,10 @@ def Register(request):
 
 @login_required(login_url='/Login')
 def  Dashboard(request):
-    return render(request, 'dashboard.html', {'media_url': settings.MEDIA_URL, 'media_root': settings.MEDIA_ROOT,})
+    invest = Invest.objects.all()
+    user= request.user
+    print(User._meta.get_fields(), user.profile.phone)
+    return render(request, 'dashboard.html', {'media_url': settings.MEDIA_URL, 'invest': invest,})
 
 def  About(request):
     return render(request, 'about.html', {'media_url': settings.MEDIA_URL, 'media_root': settings.MEDIA_ROOT,})

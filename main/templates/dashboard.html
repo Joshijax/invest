@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% block content %}
   {% load static %}
+  {% load djmoney %}
         {% include 'includes/_navbar1.html' %}
          {% if messages %}
 
@@ -105,75 +106,32 @@
     <section class="section-padding-2 gradient-overlay poly-particle">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
-                    <aside class="sidebar">
-                        <ul>
-                            <li class="active"><a href="dashboard.html"><i class="ti-direction"></i>Dashboard</a></li>
-                            <li><a href="exchange-currency.html"><i class="ti-exchange-vertical"></i>Currency Exchange</a></li>
-                            <li><a href="money-transfer.html"><i class="ti-direction"></i>Money Transfer</a></li>
-                            <li><a href="request-money.html"><i class="ti-wallet"></i>Request Money</a></li>
-                            <li><a href="transection-log.html"><i class="ti-check-box"></i>Transection Log</a></li>
-                            <li><a href="invoice.html"><i class="ti-check-box"></i>Invoice</a></li>
-                            <li><a href="vouchers.html"><i class="ti-clipboard"></i>Voucher</a></li>
-                            <li><a href="support-ticket.html"><i class="ti-help-alt"></i>Support</a></li>
-                        </ul>
-                    </aside>
-                </div>
+                {% include 'includes/_sidebar.html' %}
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
                     <div class="dashboard-content">
                         <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                 <div class="single-currency-box">
-                                    <h4>US Doller</h4>
-                                    <p>&#36; 20657.47 USD</p>
+                                    <h4>Balance</h4>
+                                    <p>{{request.user.profile.balance}} USD</p>
                                 </div>
                             </div>
+                            {% for investment in invest %}
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                                 <div class="single-currency-box">
-                                    <h4>Taka</h4>
-                                    <p>&#x09F3; 20657.47 BDT</p>
+                                    <h4>{{investment.name}}</h4>
+                                    <p>{% money_localize investment.amount %} USD</p>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>Canadian Doller</h4>
-                                    <p>&#163; 20657.47 CAD</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>Pound</h4>
-                                    <p>&#163; 20657.47 GBP</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>Yen</h4>
-                                    <p>&#165; 20657.47 YEN</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>US Doller</h4>
-                                    <p>&#36; 20657.47 USD</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>Pound</h4>
-                                    <p>&#163; 20657.47 GBP</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>Yen</h4>
-                                    <p>&#165; 20657.47 YEN</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-currency-box">
-                                    <h4>US Doller</h4>
-                                    <p>&#36; 20657.47 USD</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="single-currency-box" style="display: flex;justify-content: center;">
+                                    <button type="button" class="btn btn-primary btn-lg">Invest</button>
                                 </div>
                             </div>
                         </div>
