@@ -1,9 +1,40 @@
 {% load static %}
 <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/jquery.passwordRequirements.min.js' %}"></script>
+
 <script>
 $('#regForm').submit(function(e) {
   e.preventDefault();
   // get all the inputs into an array.
+  var password = $("#regpass").val();
+  var phone = $("#regphone").val();
+  var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+  var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+var confirmPassword = $("#regpass1").val();
+if (password != confirmPassword){
+    $("#CheckPasswordMatch").html("Password does not match !").css("color", "red");
+    return false;}
+else{
+    $("#CheckPasswordMatch").html("Password match !").css("color", "green");}
+  
+  
+
+    if(password.match(paswd)) { 
+          $("#CheckPasswordMatch1").html("Password valid !").css("color", "green");
+       
+    }else{ 
+          $("#CheckPasswordMatch1").html("Not valid").css("color", "red");
+        return false;
+    }
+
+    if(phone.match(re)) { 
+          $("#CheckPhoneMatch1").html("").css("color", "green");
+       
+    }else{ 
+          $("#CheckPhoneMatch1").html("Not valid phone number").css("color", "red");
+        return false;
+    }
+  
   var $inputs = $('#regForm :input');
 
   // not sure if you wanted this, but I thought I'd add it.
@@ -92,4 +123,40 @@ $('#logForm').submit(function(e) {
   });
 
 });
+
+$(function(){
+  $(".pr-password").passwordRequirements();
+});
+$(".pr-password").passwordRequirements({
+  numCharacters: 7,
+  useLowercase: true,
+  useUppercase: false,
+  useNumbers: true,
+  useSpecial: true
+});
+$(".pr-password").passwordRequirements({
+  fadeTime: 500
+});
+
+
+$(document).ready(function() {
+      $("#regpass1").on('keyup', function() {
+        var password = $("#regpass").val();
+        var confirmPassword = $("#regpass1").val();
+        if (password != confirmPassword)
+          $("#CheckPasswordMatch").html("Password does not match !").css("color", "red");
+        else
+          $("#CheckPasswordMatch").html("Password match !").css("color", "green");
+      });
+
+      $("#regpass").on('keyup', function() {
+          var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+        var password = $("#regpass").val();
+       
+        if (!password.match(paswd))
+          $("#CheckPasswordMatch1").html("Not valid").css("color", "red");
+        else
+          $("#CheckPasswordMatch1").html("Password valid !").css("color", "green");
+      });
+    });
 </script>

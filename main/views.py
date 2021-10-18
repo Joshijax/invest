@@ -161,11 +161,12 @@ def  Dashboard(request):
 def  About(request):
     return render(request, 'about.html', {'media_url': settings.MEDIA_URL, 'media_root': settings.MEDIA_ROOT,})
 
-
+@login_required(login_url='/Login')
 def  Investments(request):
     invest = Invest.objects.all()
     return render(request, 'invest.html', {'media_url': settings.MEDIA_URL, 'invest': invest,})
 
+@login_required(login_url='/Login')
 @csrf_exempt
 def  loadmessage(request):
     current_site = get_current_site(request)
