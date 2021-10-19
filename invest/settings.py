@@ -138,11 +138,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.privateemail.com'
-EMAIL_HOST_USER = 'molite@molite.tech'
-EMAIL_HOST_PASSWORD = 'treasure12'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'molite@molite.tech'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.hostinger.com'
+EMAIL_HOST_USER = 'info@worldcryptocoinx.com'
+EMAIL_HOST_PASSWORD = 'Worldcrypto1$'
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'info@worldcryptocoinx.com'
+EMAIL_PORT = 465
 
 
