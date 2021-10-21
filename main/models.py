@@ -11,9 +11,9 @@ class UserType(models.Model):
     phone = models.CharField(max_length = 100, blank=True)
     balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
     invested_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
-    btc_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
-    eth_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
-    usdt_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
+    btc_balance = MoneyField(max_digits=14, decimal_places=4, default_currency='USD', default=2)
+    eth_balance = MoneyField(max_digits=14, decimal_places=4, default_currency='USD', default=2)
+    usdt_balance = MoneyField(max_digits=14, decimal_places=4, default_currency='USD', default=2)
     message = models.CharField(max_length = 100, blank=True)
     email_confirm = models.BooleanField(default=False)
 

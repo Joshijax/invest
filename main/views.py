@@ -57,9 +57,13 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         # if valid set active true
         user.is_active = True
+        user.profile.email_confirm = True
         # set signup_confirmation true
 
         user.save()
+
+        print(user.profile.email_confirm)
+
         messages.add_message(request, messages.SUCCESS, 'email authenticated')
         return redirect('main:login')
     else:
@@ -110,10 +114,10 @@ def  Login(request):
         if not authenticate(username=username, password=password):
             return JsonResponse({'message':'password does not match', 'message_type':'warning'})
 
-        # if User.objects.get(username=username).profile.email_confirm == False:
-        #     resend = reverse('main:resend', kwargs={'username':username})
-        #     print(resend)
-        #     return JsonResponse({'message': f'Email is not verified. click <a href="{resend}" style="color: blue;">here</a> to resend ', 'message_type':'danger'})
+        if User.objects.get(username=username).profile.email_confirm:
+            resend = reverse('main:resend', kwargs={'username':username})
+            print(resend)
+            return JsonResponse({'message': f'Email is not verified. click <a href="{resend}" style="color: blue;">here</a> to resend ', 'message_type':'danger'})
 
         user = authenticate(username=username, password=password)
 
