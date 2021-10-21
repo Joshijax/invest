@@ -4497,7 +4497,7 @@ $(function(){
             this.$input.combodate(this.options.combodate);
                     
             if($.fn.editableform.engine === 'bs3') {
-                this.$input.siblings().find('select').addClass('form-control');
+                this.$input.siblings().find('select').addClass('form-select');
             }
             
             if(this.options.inputclass) {
@@ -4647,17 +4647,26 @@ Editableform based on Twitter Bootstrap 3
 
             //for bs3 set default class `input-sm` to standard inputs
             var emptyInputClass = this.input.options.inputclass === null || this.input.options.inputclass === false;
-            var defaultClass = 'input-sm';
+            var defaultClass = 'form-control-sm';
             
             //bs3 add `form-control` class to standard inputs
-            var stdtypes = 'text,select,textarea,password,email,url,tel,number,range,time,typeaheadjs'.split(','); 
+            var stdtypes = 'text,textarea,password,email,url,tel,number,range,time,typeaheadjs'.split(','); 
             if(~$.inArray(this.input.type, stdtypes)) {
                 this.input.$input.addClass('form-control');
                 if(emptyInputClass) {
                     this.input.options.inputclass = defaultClass;
                     this.input.$input.addClass(defaultClass);
                 }
-            }             
+            } 
+			//bs3 add `form-control` class to standard inputs
+            var stdtypes = 'select'.split(','); 
+            if(~$.inArray(this.input.type, stdtypes)) {
+                this.input.$input.addClass('form-select');
+                if(emptyInputClass) {
+                    this.input.options.inputclass = defaultClass;
+                    this.input.$input.addClass(defaultClass);
+                }
+            } 
         
             //apply bs3 size class also to buttons (to fit size of control)
             var $btn = this.$form.find('.editable-buttons');
@@ -4669,7 +4678,7 @@ Editableform based on Twitter Bootstrap 3
                     $btn.find('button').addClass('btn-sm');  
                 }
                 */
-                if(classes[i].toLowerCase() === 'input-lg') {
+                if(classes[i].toLowerCase() === 'form-control-lg') {
                     $btn.find('button').removeClass('btn-sm').addClass('btn-lg'); 
                 }
             }

@@ -735,7 +735,7 @@
 				selection: 'before',
 				tooltip: 'show',
 				tooltip_split: false,
-				handle: 'round',
+				handle: 'square',
 				reversed: false,
 				enabled: true,
 				formatter: function(val) {

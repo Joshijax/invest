@@ -3,14 +3,14 @@
 jQuery('#world-map-markers').vectorMap(
 {
     map: 'world_mill_en',
-    backgroundColor: '#272c33',
+    backgroundColor: '#fff',
     borderColor: '#818181',
     borderOpacity: 0.25,
     borderWidth: 1,
     color: '#f4f3f0',
     regionStyle : {
         initial : {
-          fill : '#0f9ad8'
+          fill : '#1e88e5'
         }
       },
     markerStyle: {
@@ -26,8 +26,8 @@ jQuery('#world-map-markers').vectorMap(
     enableZoom: true,
     hoverColor: '#0a89c1',
     markers : [{
-        latLng : [21.00, 78.00],
-        name : 'I Love My India'
+        latLng : [37.00, 96.00],
+        name : 'Text'
       
       }],
     hoverOpacity: null,
@@ -53,43 +53,43 @@ $('#india').vectorMap({
             backgroundColor : 'transparent',
             regionStyle : {
                 initial : {
-                    fill : '#f7941d'
+                    fill : '#26c6da'
                 }
             }
         });
 
 
-        $('#usa').vectorMap({
-            map : 'us_aea_en',
-            backgroundColor : 'transparent',
-            regionStyle : {
-                initial : {
-                    fill : '#BF0A30'
-                }
-            }
-        });
-        
-       
-        
-        $('#australia').vectorMap({
-            map : 'au_mill',
-            backgroundColor : 'transparent',
-            regionStyle : {
-                initial : {
-                    fill : '#00008B'
-                }
-            }
-        });
-        
-         $('#uk').vectorMap({
-            map : 'uk_mill_en',
-            backgroundColor : 'transparent',
-            regionStyle : {
-                initial : {
-                    fill : '#003399'
-                }
-            }
-        });
+$('#usa').vectorMap({
+	map : 'us_aea_en',
+	backgroundColor : 'transparent',
+	regionStyle : {
+		initial : {
+			fill : '#fc4b6c'
+		}
+	}
+});
+
+
+
+$('#australia').vectorMap({
+	map : 'au_mill',
+	backgroundColor : 'transparent',
+	regionStyle : {
+		initial : {
+			fill : '#ffb22b'
+		}
+	}
+});
+
+ $('#uk').vectorMap({
+	map : 'uk_mill_en',
+	backgroundColor : 'transparent',
+	regionStyle : {
+		initial : {
+			fill : '#0bb2d4'
+		}
+	}
+});
 
        
         

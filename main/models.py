@@ -10,6 +10,10 @@ class UserType(models.Model):
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE,)
     phone = models.CharField(max_length = 100, blank=True)
     balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
+    invested_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
+    btc_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
+    eth_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
+    usdt_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
     message = models.CharField(max_length = 100, blank=True)
     
     # url = models.URLField("Website", blank=True)

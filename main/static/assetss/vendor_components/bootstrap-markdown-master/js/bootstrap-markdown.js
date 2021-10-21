@@ -365,7 +365,7 @@
                               + ns
                               + '" data-handler="'
                               + saveHandler
-                              + '"><i class="icon icon-white icon-ok"></i> '
+                              + '"><i class="fa text-white fa-check"></i> '
                               + this.__localize('Save')
                               + '</button>');
 

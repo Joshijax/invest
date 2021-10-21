@@ -2,8 +2,8 @@ $(document).ready(function(){
 // Simple map
       map = new GMaps({
         el: '#gmaps-simple',
-        lat: 34.05,
-        lng: -78.72,
+        lat: 40.7128,
+        lng: -74.0060,
         zoom : 5,
         panControl : false,
         streetViewControl : false,
@@ -18,16 +18,16 @@ $(document).ready(function(){
     $(document).ready(function(){
       map = new GMaps({
         el: '#markermap',
-        lat: 34.043333,
-        lng: -78.028333
+        lat: 25.7617,
+        lng: -80.1918
         
       });
       map.addMarker({
-        lat: 34.042,
-        lng: -78.028333,
+        lat: 25.7617,
+        lng: -80.1918,
         title: 'Marker with InfoWindow',
         infoWindow: {
-          content: '<p>Your Content</p>'
+          content: '<p>Miami City</p>'
         }
       });
     });
@@ -46,7 +46,7 @@ $(document).ready(function(){
         lat: map.getCenter().lat(),
         lng: map.getCenter().lng(),
         layer: 'overlayLayer',
-        content: '<div class="gmaps-overlay">Lima<div class="gmaps-overlay_arrow above"></div></div>',
+        content: '<div class="gmaps-overlay">Overlayer Text<div class="gmaps-overlay_arrow above"></div></div>',
         verticalAlign: 'top',
         horizontalAlign: 'center'
       });

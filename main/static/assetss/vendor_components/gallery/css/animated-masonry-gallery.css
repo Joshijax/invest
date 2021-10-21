@@ -117,6 +117,7 @@
 	line-height: 35px;
 }
 .gallery-header-center-right-links {
+	color: #333333;
 	float: left;
 	height: 35px;
 	padding-right: 20px;
@@ -155,11 +156,12 @@
 	width: 100%;
 }
 #gallery-content-center img {
-	width: 290px;
-	margin-bottom: 10px;
+	width: 285px;
+	margin: 10px;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
-	margin-left: 11px;
+	border-radius: 10px;
+	box-shadow: 0 10px 15px -5px rgba(62, 57, 107, .07);
 }
