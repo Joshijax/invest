@@ -15,6 +15,8 @@ class UserType(models.Model):
     eth_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
     usdt_balance = MoneyField(max_digits=14, decimal_places=1, default_currency='USD', default=2)
     message = models.CharField(max_length = 100, blank=True)
+    email_confirm = models.BooleanField(default=False)
+
     
     # url = models.URLField("Website", blank=True)
     def __str__(self):

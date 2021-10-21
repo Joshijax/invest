@@ -16,6 +16,7 @@ urlpatterns = [
      path('invest/', views.Investments, name='invest'),
      path('loadinvestment/', views.loadmessage, name='loadmsg'),
      path('activate/<uidb64>/<token>/', views.activate, name='activate'),
+      path('resend/<username>/', views.resend, name='resend'),
      
     path('logout/', views.logout_request, name='logout'),
 ]

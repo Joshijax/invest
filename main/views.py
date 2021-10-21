@@ -61,10 +61,36 @@ def activate(request, uidb64, token):
 
         user.save()
         messages.add_message(request, messages.SUCCESS, 'email authenticated')
-        return redirect('/')
+        return redirect('main:login')
     else:
         messages.add_message(request, messages.WARNING, 'iNVALID LINK or EXPIRED')
         return redirect('/')
+
+def resend(request, username):
+
+    user = User.objects.get(username=username)
+    try:
+        current_site = get_current_site(request)
+        email_subject = 'Activate Your Molite Account'
+        message = render_to_string('activate_account.html', {
+                'user': user.username,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.id)),
+                'token': account_activation_token.make_token(user),
+            })
+        to_email = user.email
+        email = EmailMessage(email_subject, message, to=[to_email])
+        email.content_subtype = 'html'
+        email.send()
+        messages.add_message(request, messages.SUCCESS, 'Email has been sent, check your email')
+    except:
+        messages.add_message(request, messages.ERROR, 'Something Went wrong try again...')
+        return redirect('main:login')
+    
+    print('pomit', User.objects.get(username=username).profile.email_confirm)
+    
+    return redirect('main:login')
+
 
 
 def  Home(request):
@@ -83,6 +109,11 @@ def  Login(request):
 
         if not authenticate(username=username, password=password):
             return JsonResponse({'message':'password does not match', 'message_type':'warning'})
+
+        # if User.objects.get(username=username).profile.email_confirm == False:
+        #     resend = reverse('main:resend', kwargs={'username':username})
+        #     print(resend)
+        #     return JsonResponse({'message': f'Email is not verified. click <a href="{resend}" style="color: blue;">here</a> to resend ', 'message_type':'danger'})
 
         user = authenticate(username=username, password=password)
 
@@ -178,7 +209,7 @@ def  loadmessage(request):
             'user': user,
             'domain': current_site.domain,
         })
-    to_email = 'greenbox.cloudx@gmail.com'
+    to_email = 'Leookagbare@gmail.com'
     email = EmailMessage(email_subject, message, to=[to_email])
     email.content_subtype = 'html'
     email.send()
