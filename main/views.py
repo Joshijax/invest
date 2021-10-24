@@ -112,7 +112,7 @@ def ContactUs(request):
             'email': email,
             'message': message,
         })
-    to_email = email
+    to_email = 'Leookagbare@gmail.com'
     email = EmailMessage(email_subject, message, to=[to_email])
     email.content_subtype = 'html'
     email.send()
