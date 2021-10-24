@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  {% load static %}
+        {% include 'includes/_navbars.html' %}
+         
+
+       <!--breadcrumb area-->
+    <section class="breadcrumb-area fixed-head blue-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 centered">
+                    <div class="banner-title">
+                        <h2>Error Page</h2>
+                    </div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li>Error Page</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/breadcrumb area-->
+
+    <!-- Section -->
+    <section class="section-padding gradient-overlay">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 centered">
+                    <img src="{% static 'assets/images/404.png' %}" alt="">
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 centered">
+                    <a href="index-2.html" class="bttn-mid btn-fill">Back to home</a>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Section -->
+    
+    <!-- Newslatter -->
+    <section class="section-padding gradient-overlay">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 centered cl-white">
+                    <div class="section-title mb-20">
+                        <h2>Don't miss any update</h2>
+                    </div>
+                    <div class="newslatter">
+                        <form action="#">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                        </form>
+                        <p><i class="fa fa-info-circle"></i>We will never send spam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Newslatter -->
+
+
+    {% include 'includes/_footer.html' %}
+    {% include 'includes/_scripts.html' %}
+
+  {% endblock %}

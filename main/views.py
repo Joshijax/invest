@@ -290,6 +290,8 @@ def  loadmessage(request):
 
 
 
+def handler404(request, exception):
+    return render(request, '404.html')
 
 
 def logout_request(request):
