@@ -1,0 +1,114 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+{% include 'includes/_navbars.html' %}
+
+
+<!--breadcrumb area-->
+<section class="breadcrumb-area fixed-head blue-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 centered">
+                <div class="banner-title">
+                    <h2>Contact us</h2>
+                </div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/breadcrumb area-->
+
+<!--Content Section-->
+<section class="section-padding gradient-overlay cl-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                <div class="section-title centered">
+                    <h2>Any asking to us?</h2>
+                    <p>Get In touch using any details below or fill out the form</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="contact-form">
+                    <form action="#" id="conform">
+                        <h4>Get in touch</h4>
+                        <p>Send us a message if you need any help</p>
+                        {% if messages %}
+
+                        {% for message in messages %}
+                        <div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show"
+                            {% endif %} role="alert">
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endfor %}
+
+                        {% endif %}
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="text" name="phone" placeholder="Phone" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+                        <button type="submit" id="conbtn" class="bttn-mid btn-fill">Send message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="contact-content">
+                    <h4>Contact Details</h4>
+                    <p>130 Hollister Church Rd, Palatka, FL, 32177</p>
+                    <p>745 Old Springville Rd, Springville, TN, 38256</p>
+                    <h5>Call for emergencies</h5>
+                    <p>+1(561) 674-9875</p>
+                    <p></p>
+                    <div class="social">
+                        <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="instagram-bg"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="pinterest-bg"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/Content Section-->
+
+<!-- Newslatter -->
+<section class="section-padding gradient-overlay">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 centered cl-white">
+                <div class="section-title mb-20">
+                    <h2>Don't miss any update</h2>
+                </div>
+                <div class="newslatter">
+                    <form action="#">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                    </form>
+                    <p><i class="fa fa-info-circle"></i>We will never send spam</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /Newslatter -->
+
+
+
+
+
+
+{% include 'includes/_footer.html' %}
+{% include 'includes/_scripts.html' %}
+
+
+{% endblock %}

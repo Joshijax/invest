@@ -97,6 +97,53 @@ def resend(request, username):
     
     return redirect('main:login')
 
+@csrf_exempt
+def ContactUs(request):
+    name = request.POST.get('name', None)
+    phone = request.POST.get('phone', None)
+    email = request.POST.get('email', None)
+    message = request.POST.get('message', None)
+    print(email, message)
+
+    email_subject = f'{name} Just contacted you'
+    message = render_to_string('contactemail.html', {
+            'name': name,
+            'phone': phone,
+            'email': email,
+            'message': message,
+        })
+    to_email = email
+    email = EmailMessage(email_subject, message, to=[to_email])
+    email.content_subtype = 'html'
+    email.send()
+    messages.add_message(request, messages.SUCCESS, 'Thank you for contacting us, we would get back to you soon')
+
+
+    # try:
+    #     current_site = get_current_site(request)
+    #     email_subject = f'{name} Just contacted you'
+    #     message = render_to_string('contactemail.html', {
+    #             'name': name,
+    #             'phone': phone,
+    #             'email': email,
+    #             'message': message,
+    #         })
+    #     to_email = email
+    #     email = EmailMessage(email_subject, message, to=[to_email])
+    #     email.content_subtype = 'html'
+    #     email.send()
+    #     messages.add_message(request, messages.SUCCESS, 'Thank you for contacting us, we would get back to you soon')
+
+        
+    # except:
+    #     messages.add_message(request, messages.ERROR, 'Something Went wrong try again...')
+        
+    
+
+    
+    return JsonResponse({'message':'username Does not exist', 'message_type':'danger'})
+    
+
 
 
 def  Home(request):
@@ -198,6 +245,10 @@ def  Dashboard(request):
 
 def  About(request):
     return render(request, 'about.html', {'media_url': settings.MEDIA_URL, 'media_root': settings.MEDIA_ROOT,})
+
+def  contact(request):
+    return render(request, 'contact.html', {'media_url': settings.MEDIA_URL, 'media_root': settings.MEDIA_ROOT,})
+
 
 @login_required(login_url='/Login')
 def  Investments(request):

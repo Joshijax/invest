@@ -159,4 +159,59 @@ $(document).ready(function() {
           $("#CheckPasswordMatch1").html("Password valid !").css("color", "green");
       });
     });
+
+
+
+
+
+
+
+    $('#conform').submit(function(e) {
+  e.preventDefault();
+  // get all the inputs into an array.
+  
+  
+  var $inputs = $('#conform :input');
+
+  // not sure if you wanted this, but I thought I'd add it.
+  // get an associative array of just the values.
+  var values = {};
+  $inputs.each(function() {
+      values[this.name] = $(this).val();
+      console.log(values[this.name])
+  });
+  console.log(values)
+  $('#conbtn').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+  $('#conbtn').prop('disabled', true);
+  
+  $.ajax({
+    type: "post",
+    url: "{% url 'main:contacter' %}",
+    data: values,
+    success: function (response) {
+        $('#conbtn').html('SEND MESSAGE');
+        $('#conbtn').prop('disabled', false);
+        $('#message').html(`<div class="alert alert-${response.message_type} alert-dismissible fade show" role="alert">${response.message}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>`);
+        
+        {% comment %} $.scrollTo($('#message'), 1000); {% endcomment %}
+        console.log(response)
+        
+            window.location.reload()
+        
+        
+    },
+    error: function (data) {
+
+        $('#conbtn').html('SEND MESSAGE');
+        $('#conbtn').prop('disabled', false);
+        $('#message').html(`<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong try again...<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>`);
+    },
+  });
+
+});
+
 </script>
