@@ -6,7 +6,7 @@
                             <li {% if  request.path == '/dashboard/#balance'  %}class="active"{% endif %}><a href="/dashboard/#balance"><i class="ti-exchange-vertical"></i>Current Balance</a></li>
                             <li {% if  request.path == '/invest/'  %}class="active"{% endif %}><a href="{% url 'main:invest' %}"><i class="ti-direction"></i>Invest</a></li>
                             <li><a href="#"><i class="ti-wallet"></i>Confirm payments</a></li>
-                            <li><a href="#"><i class="ti-check-box"></i>Transection Log</a></li>
+                            <li><a href="{% url 'main:funds' %}"><i class="ti-check-box"></i>Withdraw Fund</a></li>
                             <li><a href="#"><i class="ti-help-alt"></i>Support</a></li>
                         </ul>
                     </aside>

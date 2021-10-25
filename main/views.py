@@ -88,7 +88,7 @@ def resend(request, username):
         email = EmailMessage(email_subject, message, to=[to_email])
         email.content_subtype = 'html'
         email.send()
-        messages.add_message(request, messages.SUCCESS, 'Email has been sent, check your email')
+        messages.add_message(request, messages.SUCCESS, f'Email has been sent to {user.email}, check your email')
     except:
         messages.add_message(request, messages.ERROR, 'Something Went wrong try again...')
         return redirect('main:login')
@@ -155,7 +155,7 @@ def  Login(request):
     if request.method == 'POST':
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
-        print(username, password)
+        print(username, password, authenticate(username=username, password=password))
         
         if not User.objects.filter(username=username).exists():
             return JsonResponse({'message':'username Does not exist', 'message_type':'danger'})
@@ -209,8 +209,7 @@ def Register(request):
             last_name = lastname,
             username = username,
             email = emaill,
-            password = password1,
-
+            password = make_password(password1),
         )
 
         current_site = get_current_site(request)
@@ -254,6 +253,44 @@ def  contact(request):
 def  Investments(request):
     invest = Invest.objects.all()
     return render(request, 'invest.html', {'media_url': settings.MEDIA_URL, 'invest': invest,})
+
+@login_required(login_url='/Login')
+@csrf_exempt
+def  Funds(request):
+    if request.method == 'POST':
+        username = request.POST.get('username', None)
+        amount = request.POST.get('amount', None)
+        method1 = request.POST.get('method', None)
+        des = request.POST.get('des', None)
+
+        try:
+            current_site = get_current_site(request)
+            email_subject = f'{username} Just Requested withdrawal'
+            message = render_to_string('requestemail.html', {
+                    'username': username,
+                    'amount': amount,
+                    'method': method1,
+                    'des': des,
+                })
+            to_email = 'Leookagbare@gmail.com'
+            email = EmailMessage(email_subject, message, to=[to_email])
+            email.content_subtype = 'html'
+            email.send()
+            # messages.add_message(request, messages.SUCCESS, 'Thank you for contacting us, we would get back to you soon')
+
+            
+        except:
+            return JsonResponse({'message':'Something happened try again', 'redirect': reverse('main:login'), 'message_type':'danger'})
+            
+            
+
+
+
+        return JsonResponse({'message':'Withdraw request has been received, Recieve response within 72 hours', 'redirect': reverse('main:login'), 'message_type':'success'})
+
+     
+    return render(request, 'funds.html', {'media_url': settings.MEDIA_URL,})
+
 
 @login_required(login_url='/Login')
 @csrf_exempt

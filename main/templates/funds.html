@@ -1,0 +1,210 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+{% load djmoney %}
+<style>
+    label {
+        cursor: pointer;
+        filter: grayscale(100%);
+    }
+
+    label:hover {
+        filter: grayscale(0);
+    }
+
+        {
+        % comment %
+    }
+
+    input[type="radio"]:checked+label {
+        filter: grayscale(0);
+    }
+
+        {
+        % endcomment %
+    }
+
+    .checker:checked+label {
+        filter: grayscale(0);
+    }
+</style>
+<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+{% include 'includes/_navbar1.html' %}
+{% if messages %}
+
+{% for message in messages %}
+<div {% if message.tags %} class="alert alert-{{ message.tags }}  alert-dismissible fade show" {% endif %} role="alert">
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+
+{% endif %}
+
+
+
+<!--breadcrumb area-->
+<section class="breadcrumb-area blue-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 centered">
+                <div class="banner-title">
+                    <h2>Money Transfer</h2>
+                </div>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li>Money Transfer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/breadcrumb area-->
+
+<!--Dashboard area-->
+<section class="section-padding gradient-overlay poly-particle">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+                <aside class="sidebar">
+                    <ul>
+                        <li><a href="dashboard.html"><i class="ti-direction"></i>Dashboard</a></li>
+                        <li><a href="exchange-currency.html"><i class="ti-exchange-vertical"></i>Currency Exchange</a>
+                        </li>
+                        <li class="active"><a href="money-transfer.html"><i class="ti-direction"></i>Money Transfer</a>
+                        </li>
+                        <li><a href="request-money.html"><i class="ti-wallet"></i>Request Money</a></li>
+                        <li><a href="transection-log.html"><i class="ti-check-box"></i>Transection Log</a></li>
+                        <li><a href="invoice.html"><i class="ti-check-box"></i>Invoice</a></li>
+                        <li><a href="vouchers.html"><i class="ti-clipboard"></i>Voucher</a></li>
+                        <li><a href="support-ticket.html"><i class="ti-help-alt"></i>Support</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                <div class="dashboard-content">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="dashboard-inner-content">
+                                <div class="card">
+                                    <h5 class="card-header">Money Transfer Form</h5>
+                                    <div class="card-body">
+                                        <form action="#" id="reqForm">
+                                            <div class="row">
+
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <label for="chargedfffffg">username</label>
+                                                    <input name='username' value={{request.user.username}} type="text"
+                                                        readonly="readonly" value="0" id="chargedfffffg">
+                                                </div>
+
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <label for="a-transd">Amount Transfer</label>
+                                                    <input name="amount" type="text" value="" id="a-transd"
+                                                        placeholder="Select amount" required>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <label for="currencygs">Withdrawal Type</label>
+                                                    <select class="form-control" id="currencygs" required>
+                                                        <option value="Bank Transfer">Bank Transfer</option>
+                                                        <option value="Bitcoin">Bitcoin</option>
+                                                        <option value="Etherium">Etherium</option>
+                                                        <option value="USDT">USDT</option>
+                                                        <option value="Others">Others</option>
+                                                    </select>
+                                                    <input class="d-none" name="method" type="text"
+                                                        value="Bank Transfer" id="a-trans12">
+                                                </div>
+
+
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <label for="textareagsd">description</label>
+                                                    <textarea name="des" rows="4" id="textareagsd" required
+                                                        placeholder="Enter Bitcoin Address for Receiving payment if your withdrawal type is bitcoin"></textarea>
+                                                </div>
+                                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6">
+                                                    <input type="text" placeholder="withdraw code" value="3290"
+                                                        readonly>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <button id="reqBtn" type="submit">Transfer</button>
+                                                </div>
+                                                <div class="col-xl-12" id='message'>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/Dashboard area-->
+
+
+{% include 'includes/_footer2.html' %}
+
+<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+<script>
+    $('#currencygs').on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        console.log(valueSelected, optionSelected)
+        $("#a-trans12").val(valueSelected);
+    });
+
+
+    $('#reqForm').submit(function (e) {
+        e.preventDefault();
+        // get all the inputs into an array.
+        var $inputs = $('#reqForm :input');
+
+        // not sure if you wanted this, but I thought I'd add it.
+        // get an associative array of just the values.
+        var values = {};
+        $inputs.each(function () {
+            values[this.name] = $(this).val();
+            console.log(values[this.name])
+        });
+        console.log(values)
+        $('#reqBtn').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+        $('#reqBtn').prop('disabled', true);
+
+        $.ajax({
+            type: "post",
+            url: "{% url 'main:funds' %}",
+            data: values,
+            success: function (response) {
+                $('#reqBtn').html('Transfer');
+                $('#reqBtn').prop('disabled', true);
+                $('#message').html(`<div class="alert alert-${response.message_type} alert-dismissible fade show" role="alert">${response.message}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>`);
+                $('#messageplace').html(response);
+
+
+
+            },
+            error: function (data) {
+
+                $('#reqBtn').html('Transfer');
+                $('#reqBtn').prop('disabled', false);
+                $('#message').html(`<div class="alert alert-danger alert-dismissible fade show" role="alert">Something went wrong try again...<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>`);
+            },
+        });
+
+    });
+
+
+</script>
+{% endblock %}

@@ -115,6 +115,14 @@
     <!--/Section-->
 
     <!--Brands Area-->
+     {% comment %} <div class="col-xl-12 col-12" >
+
+                            <div style="height:40px;"><iframe
+                                    src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=light&amp;pref_coin_id=1505&amp;invert_hover="
+                                    width="100%" height="36" scrolling="auto" marginwidth="0" marginheight="0"
+                                    frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div>
+
+                        </div> {% endcomment %}
     {% include 'includes/_payments.html' %}
     {% include 'includes/_partners.html' %}
 
@@ -162,7 +170,7 @@
                     <div class="section-title cl-white">
                         <h4>Steps there</h4>
                         <h2>Ways you'll Follow</h2>
-                        <p>These afre steps to follow to start earning today...</p>
+                        <p>These are the steps to follow to start earning today...</p>
                     </div>
                 </div>
             </div>
@@ -314,7 +322,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8 centered cl-white">
                     <div class="section-title mb-20">
-                        <h2>Start Transection now</h2>
+                        <h2>Start Investing now</h2>
                         <p>Invest and start earning now</p>
                     </div>
                     <a href="{% url 'main:register' %}" class="bttn-mid btn-emt">Register now</a>
@@ -416,7 +424,19 @@
 
 
     <!--Footer Area-->
-
+<!--Start of Tawk.to Script-->
+{% comment %} <script type="text/javascript">
+ var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+     (function(){
+     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+     s1.async=true;
+     s1.src='https://embed.tawk.to/60f9a676649e0a0a5ccd7aa5/1fb7j4gaa';
+     s1.charset='UTF-8';
+     s1.setAttribute('crossorigin','*');
+     s0.parentNode.insertBefore(s1,s0);
+     })();
+</script> {% endcomment %}
+<!--End of Tawk.to Script-->
     {% include 'includes/_footer.html' %}
     
     <!--/Footer Area-->

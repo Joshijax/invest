@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load google_translate %}
     <header class="header-area">
         <nav class="navbar navbar-expand-lg main-menu">
             <div class="container-fluid">
@@ -53,11 +53,7 @@
                         </li> {% endcomment %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'main:contact' %}">Contact</a></li>
                     </ul>
-                    <select name="lang-select" class="lang-select select-bar">
-                        <option value="">En</option>
-                        <option value="">Fr</option>
-                        <option value="">Bn</option>
-                    </select>
+                    {% google_translate type='simple' language='en' %}
                     <div class="header-btn justify-content-end">
                         <a href="{% url 'main:dashboard' %}" class="bttn-small btn-emt"><i class="ti-user"></i>Dashboard</a>
                     </div>

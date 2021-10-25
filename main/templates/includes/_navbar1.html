@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load google_translate %}
  <section class="header-area-2">
         <nav class="navbar navbar-expand-lg dashboard-menu">
             <div class="container-fluid">
@@ -53,6 +53,7 @@
                         </li> {% endcomment %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'main:contact' %}">Contact</a></li>
                     </ul>
+                    {% google_translate type='simple' language='en' %}
                     <div class="header-btn justify-content-end">
                         <a href="{% url 'main:logout' %}" class="bttn-small btn-emt">Logout</a>
                     </div>

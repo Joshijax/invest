@@ -8,7 +8,7 @@ $('#regForm').submit(function(e) {
   // get all the inputs into an array.
   var password = $("#regpass").val();
   var phone = $("#regphone").val();
-  var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+  var paswd=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 var confirmPassword = $("#regpass1").val();
 if (password != confirmPassword){
@@ -124,15 +124,15 @@ $('#logForm').submit(function(e) {
 
 });
 
-$(function(){
+{% comment %} $(function(){
   $(".pr-password").passwordRequirements();
-});
+}); {% endcomment %}
 $(".pr-password").passwordRequirements({
   numCharacters: 7,
   useLowercase: true,
-  useUppercase: false,
+  useUppercase: true,
   useNumbers: true,
-  useSpecial: true
+  useSpecial: false
 });
 $(".pr-password").passwordRequirements({
   fadeTime: 500
@@ -150,7 +150,7 @@ $(document).ready(function() {
       });
 
       $("#regpass").on('keyup', function() {
-          var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+          var paswd=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
         var password = $("#regpass").val();
        
         if (!password.match(paswd))
