@@ -565,16 +565,10 @@
 
 
 
-                        {% for investment in invest %}
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                            <div class="single-currency-box">
-                                <h4>{{investment.name}}</h4>
-                                <p>{% money_localize investment.amount %} USD</p>
-                            </div>
-                        </div>
-                        {% endfor %}
+
                     </div>
                 </div>
+                {% include 'includes/_plan1.html' %}
 
 
                 <div class="row">

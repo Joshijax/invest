@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
-        
+
+
     <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
 
@@ -14,23 +15,25 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{% static 'css/color_theme.css' %}">
-	<link rel="stylesheet" href="{% static 'css/vendors_css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendors_css.css' %}">
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
-    
-	
+
+
     <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/themify-icons.css' %}" rel="stylesheet">
     <link href="{% static 'assets/css/nice-select.css' %}" rel="stylesheet">
-    {% comment %} <link rel="icon" href="http://crypto-admin-templates.multipurposethemes.com/sass/bs5/images/favicon.ico"> {% endcomment %}
+    {% comment %}
+    <link rel="icon" href="http://crypto-admin-templates.multipurposethemes.com/sass/bs5/images/favicon.ico">
+    {% endcomment %}
 
-	<!-- Vendors Style-->
-    
-	  
-	<!-- Style-->  
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css/skin_color.css' %}">
-    
+    <!-- Vendors Style-->
+
+
+    <!-- Style-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skin_color.css' %}">
+
 
     <!-- Main css -->
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
@@ -43,154 +46,265 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-    
-/*---label background---*/
- .label-primary {
-  background-color: #ffa800 !important; }
- .label-info {
-  background-color: #8950fc !important; }
- .label-success {
-  background-color: #1bc5bd !important; }
- .label-danger {
-  background-color: #f64e60 !important; }
- .label-warning {
-  background-color: #6993ff !important; }
+        /*---label background---*/
+        .label-primary {
+            background-color: #ffa800 !important;
+        }
 
-/*---ribbon---*/
- .ribbon-box .ribbon-primary {
-  background-color: #ffa800; }
-   .ribbon-box .ribbon-primary:before {
-    border-color: #ffa800 transparent transparent; }
- .ribbon-box .ribbon-two-primary span {
-  background-color: #ffa800; }
-   .ribbon-box .ribbon-two-primary span:before {
-    border-left: 3px solid #cc8600;
-    border-top: 3px solid #cc8600; }
-   .ribbon-box .ribbon-two-primary span:after {
-    border-right: 3px solid #cc8600;
-    border-top: 3px solid #cc8600; }
- .ribbon-box .ribbon-info {
-  background-color: #8950fc; }
-   .ribbon-box .ribbon-info:before {
-    border-color: #8950fc transparent transparent; }
- .ribbon-box .ribbon-two-info span {
-  background-color: #8950fc; }
-   .ribbon-box .ribbon-two-info span:before {
-    border-left: 3px solid #671efb;
-    border-top: 3px solid #671efb; }
-   .ribbon-box .ribbon-two-info span:after {
-    border-right: 3px solid #671efb;
-    border-top: 3px solid #671efb; }
- .ribbon-box .ribbon-success {
-  background-color: #1bc5bd; }
-   .ribbon-box .ribbon-success:before {
-    border-color: #1bc5bd transparent transparent; }
- .ribbon-box .ribbon-two-success span {
-  background-color: #1bc5bd; }
-   .ribbon-box .ribbon-two-success span:before {
-    border-left: 3px solid #159892;
-    border-top: 3px solid #159892; }
-   .ribbon-box .ribbon-two-success span:after {
-    border-right: 3px solid #159892;
-    border-top: 3px solid #159892; }
- .ribbon-box .ribbon-danger {
-  background-color: #f64e60; }
-   .ribbon-box .ribbon-danger:before {
-    border-color: #f64e60 transparent transparent; }
- .ribbon-box .ribbon-two-danger span {
-  background-color: #f64e60; }
-   .ribbon-box .ribbon-two-danger span:before {
-    border-left: 3px solid #f41d34;
-    border-top: 3px solid #f41d34; }
-   .ribbon-box .ribbon-two-danger span:after {
-    border-right: 3px solid #f41d34;
-    border-top: 3px solid #f41d34; }
- .ribbon-box .ribbon-warning {
-  background-color: #6993ff; }
-   .ribbon-box .ribbon-warning:before {
-    border-color: #6993ff transparent transparent; }
- .ribbon-box .ribbon-two-warning span {
-  background-color: #6993ff; }
-   .ribbon-box .ribbon-two-warning span:before {
-    border-left: 3px solid #366eff;
-    border-top: 3px solid #366eff; }
-   .ribbon-box .ribbon-two-warning span:after {
-    border-right: 3px solid #366eff;
-    border-top: 3px solid #366eff; }
+        .label-info {
+            background-color: #8950fc !important;
+        }
 
+        .label-success {
+            background-color: #1bc5bd !important;
+        }
 
+        .label-danger {
+            background-color: #f64e60 !important;
+        }
+
+        .label-warning {
+            background-color: #6993ff !important;
+        }
+
+        /*---ribbon---*/
+        .ribbon-box .ribbon-primary {
+            background-color: #ffa800;
+        }
+
+        .ribbon-box .ribbon-primary:before {
+            border-color: #ffa800 transparent transparent;
+        }
+
+        .ribbon-box .ribbon-two-primary span {
+            background-color: #ffa800;
+        }
+
+        .ribbon-box .ribbon-two-primary span:before {
+            border-left: 3px solid #cc8600;
+            border-top: 3px solid #cc8600;
+        }
+
+        .ribbon-box .ribbon-two-primary span:after {
+            border-right: 3px solid #cc8600;
+            border-top: 3px solid #cc8600;
+        }
+
+        .ribbon-box .ribbon-info {
+            background-color: #8950fc;
+        }
+
+        .ribbon-box .ribbon-info:before {
+            border-color: #8950fc transparent transparent;
+        }
+
+        .ribbon-box .ribbon-two-info span {
+            background-color: #8950fc;
+        }
+
+        .ribbon-box .ribbon-two-info span:before {
+            border-left: 3px solid #671efb;
+            border-top: 3px solid #671efb;
+        }
+
+        .ribbon-box .ribbon-two-info span:after {
+            border-right: 3px solid #671efb;
+            border-top: 3px solid #671efb;
+        }
+
+        .ribbon-box .ribbon-success {
+            background-color: #1bc5bd;
+        }
+
+        .ribbon-box .ribbon-success:before {
+            border-color: #1bc5bd transparent transparent;
+        }
+
+        .ribbon-box .ribbon-two-success span {
+            background-color: #1bc5bd;
+        }
+
+        .ribbon-box .ribbon-two-success span:before {
+            border-left: 3px solid #159892;
+            border-top: 3px solid #159892;
+        }
+
+        .ribbon-box .ribbon-two-success span:after {
+            border-right: 3px solid #159892;
+            border-top: 3px solid #159892;
+        }
+
+        .ribbon-box .ribbon-danger {
+            background-color: #f64e60;
+        }
+
+        .ribbon-box .ribbon-danger:before {
+            border-color: #f64e60 transparent transparent;
+        }
+
+        .ribbon-box .ribbon-two-danger span {
+            background-color: #f64e60;
+        }
+
+        .ribbon-box .ribbon-two-danger span:before {
+            border-left: 3px solid #f41d34;
+            border-top: 3px solid #f41d34;
+        }
+
+        .ribbon-box .ribbon-two-danger span:after {
+            border-right: 3px solid #f41d34;
+            border-top: 3px solid #f41d34;
+        }
+
+        .ribbon-box .ribbon-warning {
+            background-color: #6993ff;
+        }
+
+        .ribbon-box .ribbon-warning:before {
+            border-color: #6993ff transparent transparent;
+        }
+
+        .ribbon-box .ribbon-two-warning span {
+            background-color: #6993ff;
+        }
+
+        .ribbon-box .ribbon-two-warning span:before {
+            border-left: 3px solid #366eff;
+            border-top: 3px solid #366eff;
+        }
+
+        .ribbon-box .ribbon-two-warning span:after {
+            border-right: 3px solid #366eff;
+            border-top: 3px solid #366eff;
+        }
+
+        .boxx {
+            position: relative;
+            margin-bottom: 1.5 rem;
+            width: 100%;
+
+            border-radius: 5 px;
+            padding: 0 px;
+            -webkit-transition: .5s;
+            transition: .5s;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+            box-shadow: 0 0 30px 0 rgb(82 63 105 / 5%);
+        }
+
+        .img-account-type {
+            margin-top: 40 px;
+            height: 155 px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .account-type-title {
+            font-family: nexa_boldregular;
+            font-size: 25px;
+            color: #fff;
+            margin-bottom: 20 px;
+        }
+
+        .ul-style-acc {
+            font-size: 16px;
+            color: #454545;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ul-style-acc li {
+            background: url(static/assets/images/icons/circle.png) 0 3px no-repeat;
+
+            margin-bottom: 15px;
+            color: #fff;
+        }
     </style>
 
 </head>
+
 <body>
 
 
-{% block content %}
+    {% block content %}
 
-{% endblock content %}
+    {% endblock content %}
 
-<!-- Start of LiveChat (www.livechatinc.com) code -->
-<script type="text/javascript">
-  window.__lc = window.__lc || {};
-  window.__lc.license = 13230711;
-  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)};
-  var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){
-  i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},
-  get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");
-  return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){
-  var n=t.createElement("script");
-  n.async=!0,n.type="text/javascript",
-  n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};
-  !n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-</script>
-<noscript>
-<a href="https://www.livechatinc.com/chat-with/13230711/" rel="nofollow">Chat with us</a>,
-powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a>
-</noscript>
-<!-- End of LiveChat code -->
-<!--End of Tawk.to Script-->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Start of LiveChat (www.livechatinc.com) code -->
+    <script type="text/javascript">
+        window.__lc = window.__lc || {};
+        window.__lc.license = 13230711;
+        ; (function (n, t, c) {
+            function i(n) { return e._h ? e._h.apply(null, n) : e._q.push(n) };
+            var e = {
+                _q: [], _h: null, _v: "2.0", on: function () { i(["on", c.call(arguments)]) }, once: function () {
+                    i(["once", c.call(arguments)])
+                }, off: function () { i(["off", c.call(arguments)]) },
+                get: function () {
+                    if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
+                    return i(["get", c.call(arguments)])
+                }, call: function () { i(["call", c.call(arguments)]) }, init: function () {
+                    var n = t.createElement("script");
+                    n.async = !0, n.type = "text/javascript",
+                        n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n)
+                }
+            };
+            !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e
+        }(window, document, [].slice))
+    </script>
+    <noscript>
+        <a href="https://www.livechatinc.com/chat-with/13230711/" rel="nofollow">Chat with us</a>,
+        powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a>
+    </noscript>
+    <!-- End of LiveChat code -->
+    <!--End of Tawk.to Script-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery-migrate.js' %}"></script>
 
     <script src="{% static 'assets/js/popper.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'assets/js/parallax.min.js' %}"></script>    
+    <script src="{% static 'assets/js/parallax.min.js' %}"></script>
 
     <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
     <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
     <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
-    
+
     <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
     <script src="{% static 'assets/js/scrollUp.min.js' %}"></script>
-    
+
     <script src="{% static 'assets/js/particles.min.js' %}"></script>
     <script src="{% static 'assets/js/particle-app.js' %}"></script>
     <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
-    
-    
+
+
 
     <script src="{% static 'assets/js/script.js' %}"></script>
 
     <script src="{% static 'jss/vendors.min.js' %}"></script>
-	<script src="{% static 'jss/pages/chat-popup.js' %}"></script>
-    <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>	
-	
-	<script src="{% static 'assets/vendor_components/apexcharts-bundle/irregular-data-series.js' %}"></script>
-	<script src="{% static 'assets/vendor_components/apexcharts-bundle/dist/apexcharts.js' %}"></script>
-	<script src="{% static 'assets/vendor_components/datatable/datatables.min.js' %}"></script>
-	
-	<!-- Crypto Admin App -->
-	<script src="{% static 'jss/template.js' %}"></script>
-	<script src="{% static 'jss/pages/dashboard3.js' %}"></script>
-	<script src="{% static 'jss/pages/dashboard3-chart.js' %}"></script>
-	
-    <!-- jQuery 3 -->
-	
-	
-    
-</body>
-</html>
+    <script src="{% static 'jss/pages/chat-popup.js' %}"></script>
+    <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>
 
+    <script src="{% static 'assets/vendor_components/apexcharts-bundle/irregular-data-series.js' %}"></script>
+    <script src="{% static 'assets/vendor_components/apexcharts-bundle/dist/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/vendor_components/datatable/datatables.min.js' %}"></script>
+
+    <!-- Crypto Admin App -->
+    <script src="{% static 'jss/template.js' %}"></script>
+    <script src="{% static 'jss/pages/dashboard3.js' %}"></script>
+    <script src="{% static 'jss/pages/dashboard3-chart.js' %}"></script>
+
+    <!-- jQuery 3 -->
+
+
+
+</body>
+
+</html>
