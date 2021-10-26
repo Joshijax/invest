@@ -4,6 +4,8 @@ from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns,static
 from django.urls import path
+from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 
 
  
@@ -20,6 +22,10 @@ urlpatterns = [
      path('loadinvestment/', views.loadmessage, name='loadmsg'),
      path('activate/<uidb64>/<token>/', views.activate, name='activate'),
       path('resend/<username>/', views.resend, name='resend'),
+      path('password_resett/', views.CustomPasswordResetView.as_view(), name='password_resett'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+
+      
      
     path('logout/', views.logout_request, name='logout'),
 ]

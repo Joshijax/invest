@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView
 # from .forms import AgentUploadFileForm, AgentSignUpForm, ProfileUploadForm, ImageForm
 import os
 # from django.template import loader
@@ -338,3 +339,6 @@ def logout_request(request):
 
     return redirect('main:login')
   
+
+class CustomPasswordResetView(PasswordResetView):
+    email_template_name = 'registration/password_reset_form.html'
